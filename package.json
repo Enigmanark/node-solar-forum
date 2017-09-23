@@ -10,7 +10,6 @@
       "connect-flash" : "latest",     
       "bcrypt-nodejs" : "latest",
   
-      "morgan": "latest",
       "body-parser": "~1.0",
       "cookie-parser": "latest",
       "method-override": "latest",
