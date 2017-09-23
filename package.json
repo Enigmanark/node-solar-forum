@@ -1,0 +1,19 @@
+{
+    "name": "node-solar-forum",
+    "main": "server.js",
+    "dependencies" : {
+      "express" : "~4.0.0",           
+      "ejs" : "latest",               
+      "mongoose" : "latest",          
+      "passport" : "latest",         
+      "passport-local" : "latest",    
+      "connect-flash" : "latest",     
+      "bcrypt-nodejs" : "latest",
+  
+      "morgan": "latest",
+      "body-parser": "latest",
+      "cookie-parser": "latest",
+      "method-override": "latest",
+      "express-session": "latest"     
+    }
+  }
