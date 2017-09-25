@@ -15,7 +15,7 @@ var session = require('express-session');
 
 //configuration
 var configDB = require('./config/database.js');
-mongoose.connection.openUri(configDB.uri);
+mongoose.connection.openUri(configDB.uri); //Connect to the database
 
 //setup express
 app.use(cookieparser());
