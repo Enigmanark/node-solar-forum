@@ -9,9 +9,4 @@ module.exports = function(config, app) {
             title : config.title
         });
     });
-
-    app.use(function(req, res, next) {
-        res.status(404).send("Sorry bro', can't find that!");
-    });
-
 }

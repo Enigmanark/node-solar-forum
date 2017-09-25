@@ -31,5 +31,10 @@ require("./config/passport")(passport); //pass passport to the configuration
 require('./routes/route_index.js')(config, app);
 require('./routes/route_account')(config, app, passport);
 
+//404 handling
+app.use(function(req, res, next) {
+    res.status(404).send("Sorry bro', can't find that!");
+});
+
 app.listen(port);
 console.log("[Server] Server listening on port " + port);
