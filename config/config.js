@@ -1,7 +1,10 @@
 // /config/config.js
 
+var version = "0.2.0";
+var titleOfApp = "Solar Forum.js";
+
 module.exports = {
-    version: "0.2.0",
-    titleOfApp: "SolarForum.js",
-    title: this.titleOfApp + " " +  this.version
+    version: version,
+    titleOfApp: titleOfApp,
+    title: titleOfApp + " " +  version
 }

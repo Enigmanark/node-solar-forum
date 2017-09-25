@@ -1,5 +1,6 @@
 // /server.js
 
+var config = require('./config/config.js');
 var path = require('path');
 var express = require('express');
 var port = process.env.PORT || 8080;
@@ -27,8 +28,8 @@ app.set('view engine', 'ejs');
 require("./config/passport")(passport); //pass passport to the configuration
 
 //setup routes
-require('./app/routes.js')(app, passport);
-
+require('./routes/route_index.js')(config, app);
+require('./routes/route_account')(config, app, passport);
 
 app.listen(port);
 console.log("[Server] Server listening on port " + port);
