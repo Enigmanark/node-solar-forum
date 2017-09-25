@@ -20,11 +20,20 @@
 .nav-container {
     margin: auto;
     background-color: lightblue;
-    text-align: center;
     border-radius: 10px;
 }
 
+.nav-account-container {
+    float: right;
+    padding: 15px;
+}
+
+.login-register-links {
+    text-decoration: none;
+}
+
 .nav-link {
+    text-align: left;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 20px;

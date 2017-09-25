@@ -10,10 +10,20 @@
             
             <div class="nav-container">
                 <a class="nav-link" href="/">Home</a>
+                <div class="nav-account-container">
+                    <% if(loggedIn) { %>
+                        <span>Logged in as <%= user.userName %> </span>
+                        <a class="login-register-links" href="./account/logout">Log Out</a>
+                    <% } else { %>
+                        <span>Not logged in. 
+                        <a class="login-register-links" href="/account/login">Login</a>
+                        or <a class="login-register-links" href="./account/register">Register</a> </span>
+                    <% } %>
+                </div>
             </div>
 
             <!-- This is the container for the "Content" -->
             <div class="content-container">
-            
+
         <!-- End div for container and content-container is in bottom.ejs -->
 </html>
