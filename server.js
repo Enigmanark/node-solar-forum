@@ -13,6 +13,7 @@ var passport = require('passport');
 var cookieparser = require('cookie-parser');
 var bodyparser = require('body-parser');
 var session = require('express-session');
+var flash = require('connect-flash');
 
 //configuration
 var configDB = require('./config/database.js');
@@ -21,6 +22,7 @@ mongoose.connection.openUri(configDB.uri); //Connect to the database
 //setup express
 app.use(cookieparser());
 app.use(bodyparser());
+app.use(flash());
 app.use(express.static("./public"));
 app.set('view engine', 'ejs');
 
