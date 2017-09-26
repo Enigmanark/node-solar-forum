@@ -7,7 +7,8 @@ module.exports = function(config, app) {
     app.get('/', function(req, res) {
         res.render('index.ejs', {
             title : config.title,
-            loggedIn : req.isAuthenticated()
+            loggedIn : req.isAuthenticated(),
+            user : req.user
         });
     });
 }

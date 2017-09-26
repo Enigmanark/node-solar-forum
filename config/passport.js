@@ -1,6 +1,6 @@
 // /config/passport.js
 
-var localStrategy = require('passport-local').Strategy;
+var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../app/models/User.js');
 
@@ -9,12 +9,12 @@ module.exports = function(passport) {
     //==========Passport Persistent Session Setup======
     //=================================================
 
-    //serialize the user
+    // used to serialize the user for the session
     passport.serializeUser(function(user, done) {
         done(null, user.id);
     });
 
-    //deserialize the user
+    // used to deserialize the user
     passport.deserializeUser(function(id, done) {
         User.findById(id, function(err, user) {
             done(err, user);
@@ -26,27 +26,30 @@ module.exports = function(passport) {
     //==========Local login strategy====================
     //==================================================
 
-    passport.use('local', new localStrategy({
+    passport.use('local', new LocalStrategy({
         usernameField: 'userName',
         passwordField: 'password',
         passReqToCallback: true
     },
-    function(req, userName, password, done){ //callback from our form
-        //See if can find the user in the database
-        User.findOne( {"userName" : userName}, function(err, user){
-            if(err) {
+    function(req, userName, password, done) { // callback with email and password from our form
+        
+        // find a user whose email is the same as the forms email
+        User.findOne({ 'userName' :  userName }, function(err, user) {
+            // if there are any errors, return the error before anything else
+            if (err)
                 return done(err);
-            }
-            //If we can't find the user
-            if(!user) {
-                done(null, false, req.flash("loginMessage", "User not found."));
-            } 
-            //We found the user, but the password is wrong
-            if(!user.validPassword(password)) {
-                done(null, false, req.flash("loginMessage", "Password is incorrect."));
-            }
-            //All is well, return the user
+
+            // if no user is found, return the message
+            if (!user)
+                return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
+
+            // if the user is found but the password is wrong
+            if (!user.validPassword(password))
+                return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
+
+            // all is well, return successful user
             return done(null, user);
         });
+
     }));
 }

@@ -15,7 +15,7 @@ module.exports = function(config, app, passport) {
             registerError : req.flash("registerError"),
             registerSuccess : req.flash("registerSuccess"),
             loggedIn: req.isAuthenticated()
-        })
+        });
     });
 
     //Process account registration form
@@ -23,5 +23,28 @@ module.exports = function(config, app, passport) {
         //If it makes it here then registration was successful so redirect to get the get version
         //with the param of success 
         res.redirect('/account/register?success=true');
+    });
+
+    //Login form
+    app.get("/account/login", function(req, res) {
+        //Send the loginf orm
+        res.render('./account/login.ejs', {
+            title : config.title,
+            loggedIn: req.isAuthenticated(),
+            message: req.flash("loginMessage")
+        });
+    });
+
+    //Process login form
+    app.post("/account/login", passport.authenticate('local', {
+        successRedirect : "/",
+        failureRedirect : "/account/login",
+        failureFlash : true
+    }));
+
+    //Logout
+    app.get("/account/logout", function(req, res) {
+        req.logout();
+        res.redirect("/");
     })
 }

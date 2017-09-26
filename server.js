@@ -30,6 +30,7 @@ app.set('view engine', 'ejs');
 //setup passport
 require("./config/passport")(passport); //pass passport to the configuration
 app.use(passport.initialize());
+app.use(passport.session());
 
 //setup routes
 require('./routes/route_index.js')(config, app);

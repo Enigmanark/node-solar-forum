@@ -1,0 +1,19 @@
+<html>
+<%- include ../partials/top.ejs %>
+
+<% if(message.length > 0) { %>
+    <div class="message-error">
+        <%= message %>
+    </div>
+<% } %>
+<form class="form-center" action="../account/login" method="post">
+    <label for="userName">UserName</label>
+    <input type="text" name="userName"/>
+    <br>
+    <label for="password">Password</label>
+    <input type="password" name="password"/>
+    <button type="submit">Submit</button>
+</form>
+
+<%- include ../partials/bottom.ejs %>
+</html>
