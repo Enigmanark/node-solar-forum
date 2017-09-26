@@ -1,5 +1,7 @@
 // /routes/route_account.js
 
+var register = require('../app/register.js');
+
 module.exports = function(config, app, passport) {
     //Account registration form
     app.get('/account/register', function(req, res) {
@@ -17,7 +19,9 @@ module.exports = function(config, app, passport) {
     });
 
     //Process account registration form
-    app.post('/account/register', function(req, res) {
-
+    app.post('/account/register', register, function(req, res) {
+        //If it makes it here then registration was successful so redirect to get the get version
+        //with the param of success 
+        res.redirect('/account/register?success=true');
     })
 }
