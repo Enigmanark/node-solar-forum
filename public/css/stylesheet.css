@@ -63,7 +63,8 @@
     margin: auto;
 }
 
-.board-title-container {
+.board-title-and-desc-container {
+    border-radius: 10px;
     background-color: lightblue;
     padding: 10px;
     margin-bottom: 10px;
@@ -72,5 +73,10 @@
 .board-title {
     text-decoration: none;
     color: blue;
-    font-size: 15pt;
+    font-size: 17pt;
+}
+
+.board-description {
+    color: black;
+    font-size: 12pt;
 }

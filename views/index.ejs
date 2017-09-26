@@ -4,8 +4,10 @@
     <input style="margin-bottom: 10px;" value="New Board" type="button" 
         onClick="location.href='../board/new'"/>
     <% for(i = 0; i < boards.length; i++) { %>
-        <div class="board-title-container">
-            <span><a class="board-title" href="../board?index=<%= i %>"><%= boards[i].title %></a></span>
+        <div class="board-title-and-desc-container">
+            <span><a class="board-title" href="../board?index=<%= i %>">
+                <%= boards[i].title %></a></span>
+            <br><span class="board-description"><%= boards[i].description %></span>
         </div>
     <% } %>
 
