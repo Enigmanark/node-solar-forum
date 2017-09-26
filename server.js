@@ -23,6 +23,7 @@ mongoose.connection.openUri(configDB.uri); //Connect to the database
 app.use(cookieparser());
 app.use(bodyparser());
 app.use(flash());
+app.use(session({ secret: "ilovemykittymimzy" }));
 app.use(express.static("./public"));
 app.set('view engine', 'ejs');
 
