@@ -9,6 +9,22 @@
     margin: auto;
 }
 
+.message-info {
+    padding: 15px;
+    text-align: center;
+    background-color: #63A7D4;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.message-error {
+    padding: 15px;
+    text-align: center;
+    background-color: #E22D15;
+    color: white;
+    margin-bottom: 10px;
+}
+
 .foot-container {
     padding: 20px;
     border-radius: 10px;
