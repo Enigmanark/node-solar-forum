@@ -30,12 +30,12 @@
     border-radius: 10px;
     margin: auto;
     text-align: center;
-    background-color: lightblue;
+    background-color: #A2A2C9;
 }
 
 .nav-container {
     margin: auto;
-    background-color: lightblue;
+    background-color: #A2A2C9;
     border-radius: 10px;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .board-title-container {
-    background-color: #A2A2C9;
+    background-color: lightblue;
     padding: 10px;
     margin-bottom: 10px;
 }
