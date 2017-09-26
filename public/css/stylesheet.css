@@ -53,7 +53,12 @@
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 20px;
-    font-size: 35pt;
+    font-size: 28pt;
     color: blue;
     text-decoration: none;
+}
+
+.form-center {
+    width: 300px;
+    margin: auto;
 }
