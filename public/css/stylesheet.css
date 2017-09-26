@@ -59,6 +59,18 @@
 }
 
 .form-center {
-    width: 300px;
+    width: 400px;
     margin: auto;
+}
+
+.board-title-container {
+    background-color: #A2A2C9;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.board-title {
+    text-decoration: none;
+    color: blue;
+    font-size: 15pt;
 }
