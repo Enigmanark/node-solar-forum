@@ -24,7 +24,7 @@ app.use(cookieparser());
 app.use(bodyparser());
 app.use(flash());
 app.use(session({ secret: "ilovemykittymimzy" }));
-app.use(express.static("./public"));
+app.use(express.static(path.join(__dirname, "public")));
 app.set('view engine', 'ejs');
 
 //setup passport
@@ -34,7 +34,8 @@ app.use(passport.session());
 
 //setup routes
 require('./routes/route_index.js')(config, app);
-require('./routes/route_board.js')(config,app);
+require('./routes/route_board.js')(config, app);
+require('./routes/route_topic.js')(config, app);
 require('./routes/route_account')(config, app, passport);
 
 //404 handling
