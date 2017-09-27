@@ -36,6 +36,23 @@ module.exports = function(config, app) {
                 });
             }
         });
+    });
 
+    //View a board's topics
+    app.get("/board", function(req, res) {
+        if(req.query.board) {
+            Board.find({}, function(err, boards) {
+                var board = boards[req.query.board];
+                res.render("board.ejs", {
+                    title : config.title,
+                    loggedIn : req.isAuthenticated(),
+                    user : req.user,
+                    board : board,
+                    boardIndex : req.query.board
+                });
+            });
+        } else {
+            res.redirect("/");
+        }
     });
 }

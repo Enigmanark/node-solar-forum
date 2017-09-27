@@ -1,0 +1,21 @@
+<html>
+    <%- include ./partials/top.ejs %>
+    
+    <% if(success.length > 0) { %>
+        <div class="message-info">
+            <%= success %>
+        </div>
+    <% } else { %>
+        <form class="form-center" action="/board/topic/new?board=<%= board %>" method="post">
+            <h2>New Topic</h2>
+            <label for="title">Topic Title</label>
+            <input type="text" style="width: 300px;" name="title"/>
+            <br>
+            <textarea name="content" rows="20" cols="60"></textarea>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    <% } %>
+    
+    <%- include ./partials/bottom.ejs %>
+</html>

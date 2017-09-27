@@ -5,7 +5,7 @@
         onClick="location.href='../board/new'"/>
     <% for(i = 0; i < boards.length; i++) { %>
         <div class="board-title-and-desc-container">
-            <span><a class="board-title" href="../board?index=<%= i %>">
+            <span><a class="board-title" href="../board?board=<%= i %>">
                 <%= boards[i].title %></a></span>
             <br><span class="board-description"><%= boards[i].description %></span>
         </div>

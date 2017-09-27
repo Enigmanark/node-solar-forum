@@ -1,0 +1,19 @@
+<html>
+    <%- include ./partials/top.ejs %>
+    
+    <span><a class="board-title" href="/board?board=<%= boardIndex %>">
+        <%= board.title %></a></span>
+    <hr>
+
+    <input type="button" style="margin-bottom: 5px;"
+        onClick="location.href='/board/topic/new?board=<%= boardIndex %>'"
+        value="New Topic"/>
+
+    <% for(i = board.topics.length - 1; i >= 0; i--) { %>
+        <div class="topic-title-container">
+            <span class="topic-title"><%= board.topics[i].title %></span>
+        </div>
+    <% } %>
+
+    <%- include ./partials/bottom.ejs %>
+</html>

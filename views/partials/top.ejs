@@ -1,7 +1,7 @@
 <html>
     <head>
         <title> <%= title %> </title>
-        <link rel="stylesheet" href="../css/stylesheet.css"/>
+        <link rel="stylesheet" href="/css/stylesheet.css"/>
     </head>
 
     <body>
@@ -9,7 +9,7 @@
         <div class="container">
             
             <div class="nav-container">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/"><%= title %></a>
                 <div class="nav-account-container">
                     <% if(loggedIn) { %>
                         <span>Logged in as <%= user.userName %> </span>
