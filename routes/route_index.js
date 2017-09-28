@@ -8,6 +8,9 @@ module.exports = function(config, app) {
     //===============================================
     app.get('/', function(req, res) {
         Board.find( {}, function(err, boards) {
+            boards.sort(function(a, b) {
+                return parseInt(a.orderIndex) - parseInt(b.orderIndex);
+            })
             res.render('index.ejs', {
                 title : config.title,
                 loggedIn : req.isAuthenticated(),

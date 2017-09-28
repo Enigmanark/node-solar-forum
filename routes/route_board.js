@@ -31,6 +31,7 @@ module.exports = function(config, app) {
                 var newBoard = new Board();
                 newBoard.title = title;
                 newBoard.description = desc;
+                newBoard.orderIndex = boards.length;
                 newBoard.save(function(err) {
                     res.redirect("../board/new?success=true");
                 });
