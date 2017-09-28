@@ -24,19 +24,24 @@ module.exports = function(config, app) {
     app.post("/board/new", function(req, res) {
         var title = req.body.title;
         var desc = req.body.description;
-        Board.findOne( { "title" : title }, function(err, board) {
-            if(board) {
-                res.redirect("../board/new?error=true");
-            } else {
-                var newBoard = new Board();
-                newBoard.title = title;
-                newBoard.description = desc;
-                newBoard.orderIndex = boards.length;
-                newBoard.save(function(err) {
-                    res.redirect("../board/new?success=true");
-                });
-            }
-        });
+        //Get ALL boards so we know the number of them so we can find orderIndex
+        Board.find( {}, function(err, boards) {
+            //Now make sure there isn't a board with that name already
+            Board.findOne( { "title" : title }, function(err, board) {
+                if(board) {
+                    res.redirect("../board/new?error=true");
+                } else {
+                    var newBoard = new Board();
+                    newBoard.title = title;
+                    newBoard.description = desc;
+                    newBoard.orderIndex = boards.length;
+                    newBoard.save(function(err) {
+                        res.redirect("../board/new?success=true");
+                    });
+                }
+            });
+        })
+
     });
 
     //View a board's topics
