@@ -1,0 +1,18 @@
+<html>
+    <%- include ./partials/top.ejs %>
+    
+    <span class="board-title"><a class="board-title" href="/board?board=<%= boardIndex %>">
+        <%= boardTitle %></a> / </span>
+    <span class="board-title"><a class="board-title" 
+        href="/board/topic?board=<%= boardIndex %>&topic=<%= topicIndex %>">
+        <%= topicTitle %></a> / </span>
+    <hr>
+
+    <% for(i = 0; i < posts.length; i++) { %>
+        <div class="post-container">
+            <span><%= posts[i].author %> <%= posts[i].dateString %></span><br>
+            <p><%= posts[i].content %></p>
+        </div>
+    <% } %>
+    <%- include ./partials/bottom.ejs %>
+</html>

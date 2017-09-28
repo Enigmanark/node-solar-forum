@@ -46,4 +46,25 @@ module.exports = function(config, app) {
         });
     });
 
+    //Show all posts for topic
+    app.get("/board/topic", function(req, res) {
+        var boardIndex = req.query.board;
+        var topicIndex = req.query.topic;
+        if(boardIndex && topicIndex) {
+            Board.find( {}, function(err, boards) {
+                var topic = boards[boardIndex].topics[topicIndex];
+                res.render("topic.ejs", {
+                    title : config.title,
+                    loggedIn : req.isAuthenticated(),
+                    user : req.user,
+                    boardTitle : boards[boardIndex].title,
+                    topicTitle : boards[boardIndex].topics[topicIndex].title,
+                    posts : boards[boardIndex].topics[topicIndex].posts.reverse(),
+                    boardIndex : boardIndex,
+                    topicIndex : topicIndex
+                });
+            })
+        } else { res.redirect("/"); }
+    });
+
 };
