@@ -29,12 +29,14 @@ module.exports = function(config, app) {
             var board = boards[req.query.board];
             var newTopicIndex = board.topics.length;
             var newTopic = new Object();
+            var date = new Date();
             newTopic.title = req.body.title;
             newTopic.posts = [];
             newTopic.posts[0] = new Object();
             newTopic.posts[0].content = req.body.content;
             newTopic.posts[0].author = req.user.userName;
-            newTopic.posts[0].date = Date().toLocaleDateString;
+            newTopic.posts[0].date = date;
+            newTopic.posts[0].dateString = date.toLocaleString();
             board.topics[newTopicIndex] = newTopic;
             //Internal arrays are not saved unless you mark them as modified
             board.markModified('topics');
