@@ -34,8 +34,9 @@ module.exports = function(config, app) {
             newTopic.posts[0] = new Object();
             newTopic.posts[0].content = req.body.content;
             newTopic.posts[0].author = req.user.userName;
-            newTopic.posts[0].date = new Date().toLocaleDateString;
+            newTopic.posts[0].date = Date().toLocaleDateString;
             board.topics[newTopicIndex] = newTopic;
+            //Internal arrays are not saved unless you mark them as modified
             board.markModified('topics');
             board.save(function(err) {
                 res.redirect("/board/topic/new?success=true&board=" + req.query.board);

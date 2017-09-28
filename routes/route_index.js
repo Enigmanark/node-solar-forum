@@ -8,6 +8,7 @@ module.exports = function(config, app) {
     //===============================================
     app.get('/', function(req, res) {
         Board.find( {}, function(err, boards) {
+            //Sort boards based on order of creation via their storted orderIndex var
             boards.sort(function(a, b) {
                 return parseInt(a.orderIndex) - parseInt(b.orderIndex);
             })
