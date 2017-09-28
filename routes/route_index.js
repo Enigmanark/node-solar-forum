@@ -11,7 +11,7 @@ module.exports = function(config, app) {
             //Sort boards based on order of creation via their storted orderIndex var
             boards.sort(function(a, b) {
                 return parseInt(a.orderIndex) - parseInt(b.orderIndex);
-            })
+            });
             res.render('index.ejs', {
                 title : config.title,
                 loggedIn : req.isAuthenticated(),
